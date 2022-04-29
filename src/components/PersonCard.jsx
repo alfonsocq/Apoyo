@@ -1,19 +1,27 @@
-import React, {Component} from "react";
+//import React, {Component} from "react";
+import React, {useState} from 'react';
+//class PersonCard extends Component {
+const PersonCard = ({nombre, apellido, colordecabello, edad}) => {
 
-class PersonCard extends Component {
+    const [numero, setNumero] = useState(edad); 
+    const aumentaEdad = () => {
+        setNumero(numero+1);
+}
 
-    render() {
-        const {nombre, apellido, colordecabello, edad} = this.props;
+
+
+    
         return (
             
 
             <div>
                 <h2>{apellido}, {nombre}</h2>
-                <p>Edad: {edad}</p>
+                <p>Edad: {numero}</p>
                 <p>Color de Cabello: {colordecabello}</p>
+                <button onClick={aumentaEdad} className="btn btn-primary">Aumenta</button>
             </div>
         )
     }
-}
+
 
 export default PersonCard;
